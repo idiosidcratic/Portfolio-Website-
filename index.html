@@ -1,0 +1,151 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="landing">
+        <div class="blank"></div>
+        <div class="name">
+            <div>
+                SIDDARTHA MSV</div>
+            <div class="line">
+                <a id="orange" href="">films</a>
+                <a id="teal" href="projects.html">projects</a>
+                <a id="purple" href="#aboutme">about</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="slide">
+        <img id="slider" src="pics/1.jpeg" alt="">
+    </div>
+    <div class="cont">
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="pics/1.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/2.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/3.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/7.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/5.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/6.jpeg" alt="">
+            </div>
+        </div>
+        <div class="carousel1">
+            <div class="carousel-item">
+                <img src="pics/7.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/8.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/9.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/10.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/11.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/12.jpeg" alt="">
+            </div>
+        </div>
+        <div class="carousel2">
+            <div class="carousel-item">
+                <img src="pics/4.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/2.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/1.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/5.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/6.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/3.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="about">
+        <a id="aboutme"></a>
+        <h1>ABOUT</h1>
+        Elon Reeve Musk FRS is a business magnate and investor. He is the founder, CEO, and Chief Engineer at SpaceX; angel investor, CEO, and Product Architect of Tesla, Inc.; founder of The Boring Company; and co-founder of Neuralink and OpenAI. Wiki
+    </div>
+
+    <script>
+        let slide = document.querySelector('.slider');
+        let blank = document.querySelector('.blank');
+        let vh = window.innerHeight;
+        let c = document.querySelector('.carousel');
+        let cw = c.scrollWidth;
+        let c1 = document.querySelector('.carousel1');
+        let cw1 = c1.scrollWidth;
+        let c2 = document.querySelector('.carousel2');
+        let cw2 = c2.scrollWidth;
+
+        window.addEventListener('scroll', function () {
+            var value = $(window).scrollTop();
+            c.scrollTo((500 - 0.7 * (value - 500)), 0);
+            c1.scrollTo(0.7 * (value - 500), 0);
+            c2.scrollTo((500 - 0.6 * (value - 500)), 0);
+            if (value <= 200) {
+                blank.style.height = 0;
+            }
+            else {
+                blank.style.height = 100;
+            }
+            console.log(value);
+            console.log(vh);
+
+            if (value <= 200) {
+                document.getElementById("slider").style.opacity = 100;
+            }
+            else {
+                document.getElementById("slider").style.opacity = 0;
+            }
+        })
+        function ChangeToNextImage() {
+            x = (x === imageArray.length - 1) ? 0 : x + 1;
+            document.getElementById("slider")
+                .src = imageArray[x];
+        }
+
+        function ChangeToPreviousImage() {
+            x = (x <= 0) ? imageArray.length - 1 : x - 1;
+            document.getElementById("slider")
+                .src = imageArray[x];
+        }
+
+        function startTimer() {
+            setInterval(ChangeToNextImage, 1);
+        }
+        var imageArray = [],
+            x = -1;
+        imageArray[0] = "pics/1.jpeg";
+        imageArray[1] = "pics/9.jpeg";
+    </script>
+</body>
+
+</html>
